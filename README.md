@@ -7,8 +7,8 @@ The package contains the code for three widgets: a) the Generate RM Settings wid
 
 This package was created with the assistance of dr. Tomislav Lipić to allow easy user access and usage of the CLUS-RM library. The CLUS-RM library was developed as a result of scientific work of Matej Mihelčić (matmih1@gmail.com) in the Data Mining field called Redescription mining [7]. 
 
-ClowdFlows widgets implementation
----------------------------------
+CLUS-RM widgets for ClowdFlows implementation
+----------------------------------------------
 
 - Matej Mihelčić, Ruđer Bošković Institute, Zagreb, Croatia, matmih1@gmail.com
 - dr. Tomislav Lipić, Ruđer Bošković Institute, Zagreb, Croatia
