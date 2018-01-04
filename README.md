@@ -5,7 +5,7 @@ This is the repository with the source code of the CLUS-RM widgets for ClowdFlow
 
 The package contains the code for three widgets: a) the Generate RM Settings widget, b) the CLUS-RM widget and c) Display redescription file widget.
 
-This package was created with the assistance of dr. Tomislav Lipić to allow easy user access and usage of the CLUS-RM library. The CLUS-RM library was developed as a result of scientific work of Matej Mihelčić (matmih1@gmail.com) in the Data Mining field called Redescription mining [7]. 
+This package was created with the assistance of dr. Tomislav Lipić to allow easy user access and usage of the CLUS-RM library (https://github.com/matmih/CLUS-RM-library). The CLUS-RM library was developed as a result of scientific work of Matej Mihelčić (matmih1@gmail.com) in the Data Mining field called Redescription mining [7]. 
 
 CLUS-RM widgets for ClowdFlows implementation
 ----------------------------------------------
