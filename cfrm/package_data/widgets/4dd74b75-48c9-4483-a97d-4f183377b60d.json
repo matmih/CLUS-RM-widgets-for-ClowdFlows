@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "7e81ed90-cbf9-456b-83cc-fe9ebc0af2ff", 
+      "treeview_image": "", 
+      "uid": "4dd74b75-48c9-4483-a97d-4f183377b60d", 
+      "windows_queue": false, 
+      "package": "cfrm", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "RM.png", 
+      "action": "cfrm", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 2, 
+      "name": "CLUS-RM"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4dd74b75-48c9-4483-a97d-4f183377b60d", 
+      "name": "Settings", 
+      "short_name": "set", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "settings", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "5cd6bfd7-da52-48d0-81a0-affa349fb3fb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "4dd74b75-48c9-4483-a97d-4f183377b60d", 
+      "name": "Output", 
+      "short_name": "out", 
+      "description": "", 
+      "variable": "output", 
+      "order": 1, 
+      "uid": "9d4ecf26-7e11-4857-89f8-5f3820a78912"
+    }
+  }
+]

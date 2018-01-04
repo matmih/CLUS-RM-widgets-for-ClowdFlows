@@ -1,0 +1,231 @@
+from subprocess import check_output, CalledProcessError
+from tempfile import NamedTemporaryFile
+import sys,os
+import ConfigParser
+import json
+
+import subprocess
+import StringIO
+import re
+
+
+
+def cfrm(input_dict):
+
+    # First we write settings file into temporary files.
+    temporary_settings = NamedTemporaryFile(suffix='.s', delete=False)
+    settings = input_dict['settings']
+    if settings is None:
+        settings = ''
+    temporary_settings.write(settings)
+    temporary_settings.close()
+
+    ##TEST: simulate settings
+    #st = ConfigParser.RawConfigParser()
+    #st.optionxform = str
+    #st.read('/Users/tlipic/Downloads/RM_main/SettingsEx.set')
+    #settings_buffer = StringIO.StringIO()
+    #st.write(settings_buffer)
+    #settings = settings_buffer.getvalue()    
+    #temporary_settings = NamedTemporaryFile(suffix='.s', delete=False)
+    #temporary_settings.write(settings)
+    #temporary_settings.close()
+    #print temporary_settings.name
+
+    ## TEST
+    s = ConfigParser.RawConfigParser()
+    s.optionxform = str
+    s.read(temporary_settings.name)
+    
+    out_dir = s.get('HardSetup', 'OutputFolder')
+    log_filename = 'rm_run.log'
+    #out_dir = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'outputs')
+
+    log_fp = os.path.join(out_dir, log_filename)
+
+    ## run rediscription
+    rm_jar_fp = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'bin', \
+        'Redescription_mining_MW_Constrained.jar')
+
+
+    cmd = "java -jar {rm_jar_fp} {set_fp} 2>&1 | tee {log_fp}"
+    cmd = cmd.format(rm_jar_fp=rm_jar_fp, set_fp=temporary_settings.name, log_fp=log_fp)
+
+    print cmd
+    print "Starting Redescription_mining_MW_Constrained.jar: "
+    #print cmd
+    process = subprocess.Popen(cmd, shell=True, cwd=out_dir)
+    print process.pid
+
+    if process.returncode != 0 and process.returncode is not None:
+        raise Exception("There was an error when running CLUS: " + str(process.stderr.read()) + " (Error code: " + str(
+            process.returncode) + ")")
+
+    stdout, stderr = process.communicate()
+
+    #correct this in jar file
+    out_name  = s.get("HardSetup", "OutputFileName")
+    out_fp = os.path.join(out_dir, ''.join([out_name, '1.rr']))
+    print out_fp
+
+    output_content = 'Invalid result'
+
+    try:
+
+        with open(out_fp) as f:
+            output_content = f.read()
+
+    except Exception as e:
+        print "UNEXPECTED ERROR"
+        print out_fp
+        print sys.exc_info()[0]
+        raise
+
+    # remove all temporary files.
+    os.unlink(temporary_settings.name)
+
+    return {
+        'output': output_content,
+        #'settings': input_dict['settings']
+        # 'error:': error
+    } 
+
+
+
+
+
+# Generate RM settings
+
+def handle_setting(name, input_dict, section, settings, checkbox=False):
+    if not checkbox and input_dict.get(name, None) is not None \
+            and input_dict.get(name, "").strip() != "" \
+            and input_dict.get(name, "") != "null":
+        if not settings.has_section(section):
+            settings.add_section(section)
+        settings.set(section, name, input_dict[name])
+    if checkbox:
+        if input_dict.get(name, None) is not None \
+                and input_dict.get(name, "").strip() != "" \
+                and input_dict.get(name, "") != "null":
+            if not settings.has_section(section):
+                settings.add_section(section)
+            settings.set(section, name, "Yes")
+        else:
+            if not settings.has_section(section):
+                settings.add_section(section)
+            settings.set(section, name, "No")
+
+
+
+def cfrm_generate_settings(input_dict):
+    settings = ConfigParser.RawConfigParser()
+    settings.optionxform = str
+    settings_buffer = StringIO.StringIO()
+
+    #TODO: put this in 
+    settings.add_section("HardSetup")
+    settings.set("HardSetup", "System", "linux")
+    settings.set("HardSetup", "JavaPath", "java")
+
+    clus_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'bin','lib', 'CLUSNHMC.jar')
+    settings.set("HardSetup", "ClusPath", clus_path)
+    outputs_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'outputs')
+    settings.set("HardSetup", "OutputFolder", outputs_path)
+    settings.set("HardSetup", "OutputFileName", "redescriptionsGuidedExperimentalIterativeTSMJ.rr")
+
+    if not os.path.exists(outputs_path):
+        os.makedirs(outputs_path)
+        file = open('distances.csv', 'w+')
+        file.close()
+    else:
+        print "ALL SET"
+
+    handle_setting("Input1", input_dict, "Files", settings)
+    handle_setting("Input2", input_dict, "Files", settings)
+
+    handle_setting("numIterations", input_dict, "General", settings)
+    handle_setting("clusteringMemory", input_dict, "General", settings)
+
+    handle_setting("numTrees", input_dict, "Trees", settings)
+    handle_setting("ATreeDepth", input_dict, "Trees", settings)
+    handle_setting("NumTarget", input_dict, "Trees", settings)
+    handle_setting("W1SideTrees", input_dict, "Trees", settings)
+    handle_setting("W2SideTrees", input_dict, "Trees", settings)
+
+    handle_setting("numNewAttr", input_dict, "Rules", settings)
+    handle_setting("numRetRed", input_dict, "Rules", settings)
+    handle_setting("minimizeRules", input_dict, "Rules", settings, checkbox=True)
+    handle_setting("joiningProcedure", input_dict, "Rules", settings, checkbox=True)
+    handle_setting("unguidedExpansion", input_dict, "Rules", settings, checkbox=True)
+    handle_setting("allowSERed", input_dict, "Rules", settings, checkbox=True)
+    handle_setting("MinSupport", input_dict, "Rules", settings)
+    handle_setting("MaxSupport", input_dict, "Rules", settings)
+    handle_setting("minJS", input_dict, "Rules", settings)
+    handle_setting("minAddRedJS", input_dict, "Rules", settings)
+    handle_setting("maxPval", input_dict, "Rules", settings)
+
+    handle_setting("allowLeftNeg", input_dict, "Rules", settings)
+    handle_setting("allowRightNeg", input_dict, "Rules", settings)
+    handle_setting("allowLeftDisj", input_dict, "Rules", settings)
+    handle_setting("allowRightDisj", input_dict, "Rules", settings)
+
+
+    handle_setting("JSImp", input_dict, "Rules", settings)
+    handle_setting("PValImp", input_dict, "Rules", settings)
+    handle_setting("AttDivImp", input_dict, "Rules", settings)
+    handle_setting("ElemDivImp", input_dict, "Rules", settings)
+    handle_setting("RuleSizeImp", input_dict, "Rules", settings)
+
+    settings.write(settings_buffer)
+
+    return {
+        'settings': settings_buffer.getvalue()
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def cfrm_create_integers(input_dict):
+    intStr = input_dict['intStr']
+    intList = []
+    for i in re.findall(r'\w+', intStr):
+        try:
+            intList.append(int(i))
+        except:
+            pass
+    if input_dict['sort'].lower() == "true":
+        intList.sort()
+    return {'intList':intList}
+
+def cfrm_sum_integers(input_dict):
+    intList = input_dict['intList']
+    return {'sum':sum(intList)}
+
+def cfrm_pre_filter_integers(input_dict):
+    return input_dict
+
+def cfrm_post_filter_integers(postdata,input_dict,output_dict):
+    intListOut = postdata['intListOut']
+    intList = []
+    for i in intListOut:
+        try:
+            intList.append(int(i))
+        except:
+            pass
+    return {'intList': intList}
+
+def cfrm_pre_display_summation(input_dict):
+    return {}

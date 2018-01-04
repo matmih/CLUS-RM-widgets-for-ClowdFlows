@@ -1,0 +1,903 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "7e81ed90-cbf9-456b-83cc-fe9ebc0af2ff", 
+      "treeview_image": "", 
+      "uid": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "windows_queue": false, 
+      "package": "cfrm", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "question-mark.png", 
+      "action": "cfrm_generate_settings", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "Generate RM settings"
+    }
+  },
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Input for W1", 
+      "short_name": "arff", 
+      "default": "", 
+      "description": "First data view", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "Input1", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "ec36c9d3-2959-457e-a390-fa8f56e68084"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Input for W2", 
+      "short_name": "arff", 
+      "default": "", 
+      "description": "Second data view", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "Input2", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "d13275b1-8846-4df2-9f44-b67ad25d997a"
+    }
+  },  
+    {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Preference file path", 
+      "short_name": "txtmat", 
+      "default": "", 
+      "description": "Preference weights", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "preferenceFilePath", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "66516dd1-dc26-11e7-ba28-c4346b5e3e37"
+    }
+  },  
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Initial clustering file name", 
+      "short_name": "arff", 
+      "default": "", 
+      "description": "Initial clusters file", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "initClusteringFileName", 
+      "parameter": false, 
+      "order": 4, 
+      "uid": "c9d3611e-dc2a-11e7-a20a-c4346b5e3e37"
+    }
+  }, 
+    {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Allowed memory to use for clustering and tree construction (MB)", 
+      "short_name": "num", 
+      "default": "10000", 
+      "description": "clusteringMemory", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "clusteringMemory", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "d3089665-6aa8-4b32-b7e8-192ba57a5169"
+    }
+  }, 
+    {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Allowed tree depth [1,Infinity]", 
+      "short_name": "num", 
+      "default": "6", 
+      "description": "ATreeDepth", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "ATreeDepth", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "501495d2-8c6e-4775-b739-a35acbbd470e"
+    }
+  }, 
+   {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Type of PCTs used on W1 attributes", 
+      "short_name": "w1", 
+      "default": "regression", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "W1SideTrees", 
+      "parameter": true, 
+      "order": 7, 
+      "uid": "af641b0d-196f-4846-b697-706f30add5f2"
+    }
+  }, 
+    {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Type of PCTs used on W2 attributes", 
+      "short_name": "w2", 
+      "default": "regression", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "W2SideTrees", 
+      "parameter": true, 
+      "order": 8, 
+      "uid": "244e0048-b3ce-4af7-bbd0-c1028f859d5f"
+    }
+  },
+    {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Number of targets to use in each tree [1,1000]", 
+      "short_name": "num", 
+      "default": "100", 
+      "description": "NumTarget", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "NumTarget", 
+      "parameter": true, 
+      "order": 9, 
+      "uid": "18464adf-d4ec-433b-bec5-2057a400c5a5"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Number of supplementing trees in a forest (to use in addition to the guiding PCT)", 
+      "short_name": "num", 
+      "default": "0", 
+      "description": "numSupplementTrees", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "numSupplementTrees", 
+      "parameter": true, 
+      "order": 10, 
+      "uid": "6e526a73-19cd-4b2f-9573-9bc0558844fc"
+    }
+  }, 
+    {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Number of new attributes required to accept created rule", 
+      "short_name": "num", 
+      "default": "1", 
+      "description": "numNewAttr", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "numNewAttr", 
+      "parameter": true, 
+      "order": 11, 
+      "uid": "57442aca-a76b-4f68-9b67-78cf7dba3da1"
+    }
+  },
+   {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Number of random restarts", 
+      "short_name": "num", 
+      "default": "1", 
+      "description": "Random restarts with different initial clustering", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "numRandomRestarts", 
+      "parameter": true, 
+      "order": 12, 
+      "uid": "9e7ff170-dc32-11e7-8d38-c4346b5e3e37"
+    }
+  },
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Number of iterations", 
+      "short_name": "num", 
+      "default": "20", 
+      "description": "numIterations", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "numIterations", 
+      "parameter": true, 
+      "order": 13, 
+      "uid": "593c7bb5-df98-4e9c-b8ef-658906e3d8a6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Redescription set size [1,inf>", 
+      "short_name": "num", 
+      "default": "50", 
+      "description": "numRetRed", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "numRetRed", 
+      "parameter": true, 
+      "order": 14, 
+      "uid": "628caeda-938f-4bf7-af3c-52ed0f0d92c5"
+    }
+  },   
+       {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Type of redescription set optimization", 
+      "short_name": "optimizationType", 
+      "default": "exchange", 
+      "description": "optimizationType", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "optimizationType", 
+      "parameter": true, 
+      "order": 15, 
+      "uid": "cb32d070-dc32-11e7-8c85-c4346b5e3e37"
+    }
+  }, 
+    {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Type of redescription set size (works with exchange optimization type)", 
+      "short_name": "redesSetSizeType", 
+      "default": "exact", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "redesSetSizeType", 
+      "parameter": true, 
+      "order": 16, 
+      "uid": "1ba7e400-dc33-11e7-a17d-c4346b5e3e37"
+    }
+  }, 
+      {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Unguided rule expansion", 
+      "short_name": "ungexp", 
+      "default": "Yes", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "unguidedExpansion", 
+      "parameter": true, 
+      "order": 17, 
+      "uid": "61ab63f0-964d-4d4c-8c37-8b268ce92ad4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Minimal redescription support ([1,|E|])", 
+      "short_name": "num", 
+      "default": "10", 
+      "description": "MinSupport", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "MinSupport", 
+      "parameter": true, 
+      "order": 18, 
+      "uid": "03f52f49-c5bb-4650-8164-de826083265a"
+    }
+  }, 
+    {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Maximal redescription support ([1,|E|])", 
+      "short_name": "num", 
+      "default": "80", 
+      "description": "MaxSupport", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "MaxSupport", 
+      "parameter": true, 
+      "order": 19, 
+      "uid": "af33fc23-d169-49b6-887c-e137510ff4c1"
+    }
+  }, 
+     {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Type of Jaccard index", 
+      "short_name": "jsType", 
+      "default": "query non missing", 
+      "description": "qnm", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "jsType", 
+      "parameter": true, 
+      "order": 20, 
+      "uid": "b29d0580-dc32-11e7-a818-c4346b5e3e37"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Minimal redescription Jaccard index (accuracy, [0,1])", 
+      "short_name": "pval", 
+      "default": "0.5", 
+      "description": "minJS", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "minJS", 
+      "parameter": true, 
+      "order": 21, 
+      "uid": "6b0239bb-d15c-4c72-99ec-37d9835f3aea"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Maximal redescription p-value [0,1]", 
+      "short_name": "pval", 
+      "default": "0.01", 
+      "description": "maxPval", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "maxPval", 
+      "parameter": true, 
+      "order": 22, 
+      "uid": "76bf0f8b-a8a2-4497-8492-05557e4317b2"
+    }
+  }, 
+    {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Allow using non-literal negations in W1 query construction", 
+      "short_name": "allw00", 
+      "default": "false", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "allowLeftNeg", 
+      "parameter": true, 
+      "order": 23, 
+      "uid": "c31f7960-1ed9-439a-b4a9-085e468c3cbc"
+    }
+  },
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Allow using non-literal negations in W2 query construction", 
+      "short_name": "allw10", 
+      "default": "false", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "allowRightNeg", 
+      "parameter": true, 
+      "order": 24, 
+      "uid": "153598f4-51c3-40e0-af9d-05cbcfbd2b0a"
+    }
+  }, 
+      {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Allow using disjunction operator in W1 query construction", 
+      "short_name": "allw01", 
+      "default": "false", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "allowLeftDisj", 
+      "parameter": true, 
+      "order": 25, 
+      "uid": "1e153625-2c60-44f8-ae81-e6143e9c66f3"
+    }
+  }, 
+   {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Allow using disjunction operator in W2 query construction", 
+      "short_name": "allw11", 
+      "default": "false", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "allowRightDisj", 
+      "parameter": true, 
+      "order": 26, 
+      "uid": "d3cc8fc2-6394-4602-8f24-e4b13ecf0417"
+    }
+  },   
+   {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Allow redescriptions with identical support sets", 
+      "short_name": "allse", 
+      "default": "No", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "allowSERed", 
+      "parameter": true, 
+      "order": 27, 
+      "uid": "79012cde-7681-4f01-bf16-43e20f4e4ead"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Use redescription refinement procedure", 
+      "short_name": "join", 
+      "default": "No", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "joiningProcedure", 
+      "parameter": true, 
+      "order": 28, 
+      "uid": "65d8e4e3-2b72-4f26-a40d-fb78e7e11aba"
+    }
+  }, 
+    {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Minimal redescription Jaccard index required to use for refinement (works with extraction optimization type)", 
+      "short_name": "minaddjs", 
+      "default": "0.3", 
+      "description": "minAddRedJS", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "minAddRedJS", 
+      "parameter": true, 
+      "order": 29, 
+      "uid": "5704928a-5d88-4491-9da4-e6cb68643c2c"
+    }
+  }, 
+    {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Minimize redescription queries", 
+      "short_name": "minrl", 
+      "default": "Yes", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "minimizeRules", 
+      "parameter": true, 
+      "order": 30, 
+      "uid": "c481de15-ccd3-476e-b00d-7fe5b94c7b37"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Redescription query size normalization factor (works with extraction optimization type)", 
+      "short_name": "normalization", 
+      "default": "20", 
+      "description": "ruleSizeNormalization", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "ruleSizeNormalization", 
+      "parameter": true, 
+      "order": 31, 
+      "uid": "3c5a1970-dc33-11e7-a50a-c4346b5e3e37"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Generalized redescription set construction parameters (format: vJ1-vJ2;stepJ,vSupp1-vSupp2;stepSupp,vOpt1-vOpt2), or ((vJ1,vSupp1,vOpt1), (vJ2,vSupp2,VOpt2) etc.)", 
+      "short_name": "params", 
+      "default": "", 
+      "description": "parameters", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "parameters", 
+      "parameter": true, 
+      "order": 32, 
+      "uid": "5504cbf0-dc33-11e7-b959-c4346b5e3e37"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Give special importance to a specified groups of attributes from W1", 
+      "short_name": "attributeImportanceW1", 
+      "default": "", 
+      "description": "attributeImportanceW1", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "attributeImportanceW1", 
+      "parameter": true, 
+      "order": 33, 
+      "uid": "69e7a100-dc33-11e7-a7dc-c4346b5e3e37"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Give special importance to a specified groups of attributes from W2", 
+      "short_name": "attributeImportanceW2", 
+      "default": "", 
+      "description": "attributeImportanceW2", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "attributeImportanceW2", 
+      "parameter": true, 
+      "order": 34, 
+      "uid": "77d41500-dc33-11e7-a570-c4346b5e3e37"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Important attributes from W1 (format: {att1},{att2},{att3;att4})", 
+      "short_name": "importantAttributesW1", 
+      "default": "", 
+      "description": "importantAttributesW1", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "importantAttributesW1", 
+      "parameter": true, 
+      "order": 35, 
+      "uid": "832bfb70-dc33-11e7-a8ec-c4346b5e3e37"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "Important attributes from W2 (format: {att1},{att2},{att3;att4})", 
+      "short_name": "importantAttributesW2", 
+      "default": "", 
+      "description": "importantAttributesW2", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "importantAttributesW2", 
+      "parameter": true, 
+      "order": 36, 
+      "uid": "90abf200-dc33-11e7-ad39-c4346b5e3e37"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "22f9a548-c2f3-4f77-b1a9-9f8bb1e068c7", 
+      "name": "CLUS-RM settings", 
+      "short_name": "set", 
+      "description": "RM Settings", 
+      "variable": "settings", 
+      "order": 1, 
+      "uid": "5e940003-1f79-4fbc-8926-b4f8de3dc4c8"
+    }
+  }, 
+    {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "true", 
+      "uid": "e647c290-cf20-484f-9405-abaeb19f1d75", 
+      "value": "true", 
+      "abstract_input": "d3cc8fc2-6394-4602-8f24-e4b13ecf0417"
+    }
+  },
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "false", 
+      "uid": "56e23c9c-bbb6-4044-85d0-1c91c18d1726", 
+      "value": "false", 
+      "abstract_input": "d3cc8fc2-6394-4602-8f24-e4b13ecf0417"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "false", 
+      "uid": "59d5155e-4634-4d91-9678-cd5057c2c5aa", 
+      "value": "false", 
+      "abstract_input": "153598f4-51c3-40e0-af9d-05cbcfbd2b0a"
+    }
+  },
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "true", 
+      "uid": "7d5e5795-3378-4cfa-9466-351c77fe180f", 
+      "value": "true", 
+      "abstract_input": "153598f4-51c3-40e0-af9d-05cbcfbd2b0a"
+    }
+  },   
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "false", 
+      "uid": "770244a2-beee-46c4-81d2-493f59322d13", 
+      "value": "false", 
+      "abstract_input": "c31f7960-1ed9-439a-b4a9-085e468c3cbc"
+    }
+  }, 
+    {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "true", 
+      "uid": "cf7b289d-2924-4065-86a4-7aae7aed9adf", 
+      "value": "true", 
+      "abstract_input": "c31f7960-1ed9-439a-b4a9-085e468c3cbc"
+    }
+  },
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "true", 
+      "uid": "7da1dab0-7726-44e1-87a7-4e8345581323", 
+      "value": "true", 
+      "abstract_input": "1e153625-2c60-44f8-ae81-e6143e9c66f3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "false", 
+      "uid": "8536566d-1355-4403-a120-bb1852593792", 
+      "value": "false", 
+      "abstract_input": "1e153625-2c60-44f8-ae81-e6143e9c66f3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "regression", 
+      "uid": "b1f34852-e4ae-4699-ac03-45e266a7038c", 
+      "value": "regression", 
+      "abstract_input": "244e0048-b3ce-4af7-bbd0-c1028f859d5f"
+    }
+  }, 
+   {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "classification", 
+      "uid": "d91ccf40-dc39-11e7-a37f-c4346b5e3e37", 
+      "value": "classification", 
+      "abstract_input": "244e0048-b3ce-4af7-bbd0-c1028f859d5f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "regression", 
+      "uid": "be24fa7d-988a-40f1-ab62-0c281573276b", 
+      "value": "regression", 
+      "abstract_input": "af641b0d-196f-4846-b697-706f30add5f2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "classification", 
+      "uid": "a20afdde-dc3b-11e7-89e5-c4346b5e3e37", 
+      "value": "classification", 
+      "abstract_input": "af641b0d-196f-4846-b697-706f30add5f2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "query non missing", 
+      "uid": "d362db40-dc38-11e7-a87d-c4346b5e3e37", 
+      "value": "query non missing", 
+      "abstract_input": "b29d0580-dc32-11e7-a818-c4346b5e3e37"
+    }
+  },
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "pessimistic", 
+      "uid": "279871e1-dc3c-11e7-bdf3-c4346b5e3e37", 
+      "value": "pessimistic", 
+      "abstract_input": "b29d0580-dc32-11e7-a818-c4346b5e3e37"
+    }
+  },
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "exchange", 
+      "uid": "c5bcfe70-dc3e-11e7-87c4-c4346b5e3e37", 
+      "value": "exchange", 
+      "abstract_input": "cb32d070-dc32-11e7-8c85-c4346b5e3e37"
+    }
+  },
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "extraction", 
+      "uid": "d15f8270-dc3e-11e7-898e-c4346b5e3e37", 
+      "value": "extraction", 
+      "abstract_input": "cb32d070-dc32-11e7-8c85-c4346b5e3e37"
+    }
+  },
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "exact", 
+      "uid": "2057ba00-dc3f-11e7-8043-c4346b5e3e37", 
+      "value": "exact", 
+      "abstract_input": "1ba7e400-dc33-11e7-a17d-c4346b5e3e37"
+    }
+  },
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "flexible", 
+      "uid": "2b347d00-dc3f-11e7-b36a-c4346b5e3e37", 
+      "value": "flexible", 
+      "abstract_input": "1ba7e400-dc33-11e7-a17d-c4346b5e3e37"
+      }
+	},
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "none", 
+      "uid": "18b2c211-dc42-11e7-92ab-c4346b5e3e37", 
+      "value": "none", 
+      "abstract_input": "69e7a100-dc33-11e7-a7dc-c4346b5e3e37"
+      }
+	},
+	{
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "soft", 
+      "uid": "39863b21-dc42-11e7-8efa-c4346b5e3e37", 
+      "value": "soft", 
+      "abstract_input": "69e7a100-dc33-11e7-a7dc-c4346b5e3e37"
+    }
+  },
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "hard", 
+      "uid": "46982da1-dc42-11e7-bd83-c4346b5e3e37", 
+      "value": "hard", 
+      "abstract_input": "69e7a100-dc33-11e7-a7dc-c4346b5e3e37"
+      }
+	},
+	{
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "suggested", 
+      "uid": "539deb21-dc42-11e7-bb82-c4346b5e3e37", 
+      "value": "suggested", 
+      "abstract_input": "69e7a100-dc33-11e7-a7dc-c4346b5e3e37"
+      }
+	},
+	{
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "do not use", 
+      "uid": "be34499e-dc58-11e7-8cb7-c4346b5e3e37", 
+      "value": "", 
+      "abstract_input": "69e7a100-dc33-11e7-a7dc-c4346b5e3e37"
+      }
+	},
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "none", 
+      "uid": "4828569e-dc5a-11e7-a7fc-c4346b5e3e37", 
+      "value": "none", 
+      "abstract_input": "77d41500-dc33-11e7-a570-c4346b5e3e37"
+      }
+	},
+	{
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "soft", 
+      "uid": "530edda1-dc5a-11e7-9559-c4346b5e3e37", 
+      "value": "soft", 
+      "abstract_input": "77d41500-dc33-11e7-a570-c4346b5e3e37"
+    }
+  },
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "hard", 
+      "uid": "653774b0-dc5a-11e7-be3c-c4346b5e3e37", 
+      "value": "hard", 
+      "abstract_input": "77d41500-dc33-11e7-a570-c4346b5e3e37"
+      }
+	},
+	{
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "suggested", 
+      "uid": "6f08bb1e-dc5a-11e7-9f2d-c4346b5e3e37", 
+      "value": "suggested", 
+      "abstract_input": "77d41500-dc33-11e7-a570-c4346b5e3e37"
+      }
+	},
+	{
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "do not use", 
+      "uid": "7ea920ae-dc5a-11e7-8aa9-c4346b5e3e37", 
+      "value": "", 
+      "abstract_input": "77d41500-dc33-11e7-a570-c4346b5e3e37"
+      }
+	}
+]

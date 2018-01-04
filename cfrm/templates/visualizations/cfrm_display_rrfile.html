@@ -1,0 +1,23 @@
+<div id="widgetvisualization-{{ widget.pk }}" width="710" height="500" rel="{{ widget.pk }}"
+     class="widgetvisualizationdialog" title="{{ widget.name }} results" style="text-align:center;">
+     <br>
+     <div style="width:680px; height:50px;overflow-y:scroll">
+	    {% for filename in files  %}
+         <a align="center"href="{{ MEDIA_URL }}{{ filename }}?v={{ random }}">Download {{filename}} </a>
+		 <br>
+		 {% endfor %}
+     </div>
+     <br>
+     <hr>
+     <div style="overflow: auto; width:680px; height:300px;">
+	 {% for content in contents  %}
+	 <h1> Redescription set: </h1>
+	 <br>
+     <pre align="left">
+             {{content}}
+     </pre>
+	 {% endfor %}
+    </div>
+     <br>
+     <hr>
+</div>

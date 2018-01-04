@@ -1,0 +1,9 @@
+{ 
+  "model": "workflows.category", 
+  "fields": {
+    "uid": "7e81ed90-cbf9-456b-83cc-fe9ebc0af2ff",
+    "parent": null, 
+    "order": 1, 
+    "name": "Redescription Mining - RM"
+  }
+}

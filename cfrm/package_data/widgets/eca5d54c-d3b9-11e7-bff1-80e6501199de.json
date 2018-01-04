@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "7e81ed90-cbf9-456b-83cc-fe9ebc0af2ff", 
+      "treeview_image": "", 
+      "uid": "eca5d54c-d3b9-11e7-bff1-80e6501199de", 
+      "windows_queue": false, 
+      "package": "cfrm", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "display_string.png", 
+      "action": "cfrm_display_rrfile", 
+      "visualization_view": "cfrm_display_rrfile", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 2, 
+      "name": "Display Redescription File"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "eca5d54c-d3b9-11e7-bff1-80e6501199de", 
+      "name": "Model", 
+      "short_name": "rr", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "redescriptions", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "69c64deb-d3c1-11e7-b737-80e6501199de"
+    }
+  }
+]
