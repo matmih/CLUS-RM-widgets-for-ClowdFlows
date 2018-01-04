@@ -40,14 +40,12 @@ Systems, pp. 1–34, 2017, In press, issn: 1573-7675. doi: 10.1007/s10844-017-04
 
 3. M. Mihelčić, S. Džeroski, N. Lavrač, and T. Šmuc, “A framework for redescription set
 construction,” Expert Systems with Applications, vol. 68, pp. 196–215, 2017, issn: 0957-4174. doi: http://doi.org/10.1016/j.
-eswa.2016.10.012. [Online]. Available: http://www.sciencedirect.com/science/
-article/pii/S0957417416305437.
+eswa.2016.10.012. [Online]. Available: http://www.sciencedirect.com/science/article/pii/S0957417416305437.
 
 4. M. Mihelčić, G. Šimić, M. Babić Leko, N. Lavrač, S. Džeroski, T. Šmuc, and for the
 Alzheimer’s Disease Neuroimaging Initiative, “Using redescription mining to relate
 clinical and biological characteristics of cognitively impaired and alzheimer’s disease
-patients,” PLOS ONE, vol. 12, no. 10, pp. 1–35, 2017, doi: 10.1371/journal.pone.0187364. [Online]. Available: https://doi.org/
-10.1371/journal.pone.0187364.
+patients,” PLOS ONE, vol. 12, no. 10, pp. 1–35, 2017, doi: 10.1371/journal.pone.0187364. [Online]. Available: https://doi.org/10.1371/journal.pone.0187364.
 --------------------------------------------------------------------------------------
 
 Related publications: 
